@@ -162,13 +162,23 @@
 body.wp-admin #dev-studio-bar {
   top: 32px;
 }
+@media only screen and (max-width: 782px) {
+  body.wp-admin #dev-studio-bar {
+    top: 46px;
+  }
+}
 body:not(.wp-admin).admin-bar #dev-studio-bar {
   top: 32px;
+}
+@media only screen and (max-width: 782px) {
+  body:not(.wp-admin).admin-bar #dev-studio-bar {
+    top: 46px;
+  }
 }
 body.ds-bar-expand #dev-studio-bar {
   height: 26px;
 }
-body.ds-bar-expand #dev-studio-bar .ds-bar-inner {
+body.ds-bar-expand #dev-studio-bar .ds-bar-wrap {
   font-size: 13px;
   height: 26px;
   line-height: 1.4em;
@@ -182,15 +192,18 @@ body.ds-bar-expand #wpwrap #wpbody {
 
 #dev-studio-bar {
   height: 0;
+  display: flex;
   position: fixed;
   width: 100%;
   left: 0;
+  top: 0;
   z-index: 9999;
   border-top: 0 #59bef8 solid;
   background-color: #0073aa;
 }
-#dev-studio-bar *:not(.fa) {
+#dev-studio-bar div, #dev-studio-bar span:not(.fa), #dev-studio-bar td, #dev-studio-bar select, #dev-studio-bar input, #dev-studio-bar textarea {
   font-family: "Roboto", sans-serif !important;
+  line-height: 1em;
 }
 #dev-studio-bar .ds-bar-icon {
   position: absolute;
@@ -217,19 +230,32 @@ body.ds-bar-expand #wpwrap #wpbody {
   font-weight: normal !important;
   display: block;
 }
-#dev-studio-bar .ds-bar-inner {
-  overflow: hidden;
-  background-color: #0073aa;
+#dev-studio-bar .ds-bar-wrap {
+  display: flex;
   height: 0;
-  line-height: 1.2em;
+  overflow: hidden;
 }
-#dev-studio-bar .ds-bar-inner > div {
+#dev-studio-bar .ds-bar-wrap .ds-bar-ds {
+  padding: 4px 5px 0 4px;
+  background-color: #016797;
+  height: 26px;
+  cursor: pointer;
+  line-height: 0;
+}
+#dev-studio-bar .ds-bar-wrap .ds-bar-ds img {
+  width: 17px !important;
+  height: 17px !important;
+  max-width: none;
+  max-height: none;
+}
+#dev-studio-bar .ds-bar-wrap .ds-bar-inner > div {
   color: #fff;
   display: inline-block;
   padding: 4px 7px 0 7px;
   font-size: 13px;
+  line-height: 1.4em;
 }
-#dev-studio-bar .ds-bar-inner > div .fa {
+#dev-studio-bar .ds-bar-wrap .ds-bar-inner > div .fa {
   padding-right: 3px;
   font-size: 13px;
 }
@@ -253,6 +279,7 @@ body.ds-bar-expand #wpwrap #wpbody {
   cursor: pointer;
   height: 40px;
   max-height: 40px;
+  line-height: 1.6em;
 }
 #dev-studio .ds-header .ds-header-bar #ds-ajax.ds-active, #dev-studio .ds-header .ds-header-bar #ds-ajax:not(.ds-active):hover {
   color: #fff;
@@ -271,6 +298,7 @@ body.ds-bar-expand #wpwrap #wpbody {
   padding: 4px 7px;
   border-radius: 2px;
   color: #666;
+  line-height: 1.5em;
 }
 #dev-studio .ds-header .ds-header-bar #ds-ajax-test div:hover {
   background-color: #eee;
@@ -390,8 +418,8 @@ body.ds-bar-expand #wpwrap #wpbody {
   margin-right: 3px;
   padding: 5px 7px;
   font-size: 13px;
+  line-height: 1.4em;
   position: relative;
-  /*background-color: $ds-color-lightest-blue;*/
   transition: all 0.5s;
   color: #666;
   border-color: #ddd;
@@ -473,11 +501,13 @@ body.ds-bar-expand #wpwrap #wpbody {
 #dev-studio #dev-studio-data-info h2 {
   font-size: 15px;
   padding: 5px 10px;
+  line-height: 1.4em;
 }
 #dev-studio #dev-studio-data h3,
 #dev-studio #dev-studio-data-info h3 {
   font-size: 13px;
   padding: 4px 8px;
+  line-height: 1.4em;
 }
 #dev-studio #dev-studio-data .message,
 #dev-studio #dev-studio-data-info .message {
@@ -518,6 +548,7 @@ body.ds-bar-expand #wpwrap #wpbody {
   font-size: 100% !important;
   padding: 4px 6px !important;
   color: #333 !important;
+  line-height: 1.4em;
 }
 #dev-studio #dev-studio-data .ds-phpinfo h2 {
   border: 0 !important;
@@ -770,6 +801,7 @@ body.ds-bar-expand #wpwrap #wpbody {
   font-size: 12px;
   padding-left: 4px;
   padding-right: 4px;
+  line-height: 1.5em;
 }
 #dev-studio-actions .cp-wrapper .cp-check {
   flex-basis: 10%;
@@ -920,6 +952,7 @@ body.ds-bar-expand #wpwrap #wpbody {
   border-color: #ddd;
   border-style: solid;
   border-width: 1px 1px 0 1px;
+  line-height: 1.4em;
 }
 #dev-studio .avaf .avaf-nav-sections .avaf-sections .avaf-section .avaf-nav-tabs .avaf-nav-tab.active {
   background-color: #0073aa;
@@ -1031,6 +1064,12 @@ body.ds-bar-expand #wpwrap #wpbody {
 }
 #dev-studio .avaf-group .avaf-field .avaf-text-short {
   width: 30px;
+}
+#dev-studio .avaf-sortable-html, #dev-studio .avaf-sortable-handle {
+  line-height: 1.8em;
+}
+#dev-studio .avaf-sortable-handle {
+  padding-top: 3px;
 }
 
 #dev-studio {
@@ -1162,6 +1201,7 @@ body.ds-bar-expand #wpwrap #wpbody {
   left: 7px;
   right: 7px;
   font-size: 12px;
+  line-height: 1.6em;
 }
 #dev-studio .ds-on-off .ds-items div {
   position: absolute;
@@ -1170,9 +1210,11 @@ body.ds-bar-expand #wpwrap #wpbody {
 }
 #dev-studio .ds-on-off .ds-items .ds-on {
   left: 0;
+  line-height: 1.5em;
 }
 #dev-studio .ds-on-off .ds-items .ds-off {
   right: 2px;
+  line-height: 1.5em;
 }
 #dev-studio .ds-on-off .ds-slider {
   border-radius: 3px;
@@ -1304,9 +1346,10 @@ body.ds-bar-expand #wpwrap #wpbody {
 #dev-studio div {
   box-sizing: border-box;
 }
-#dev-studio div, #dev-studio span:not(.fa), #dev-studio td {
+#dev-studio div, #dev-studio span:not(.fa), #dev-studio td, #dev-studio select, #dev-studio input, #dev-studio textarea {
   font-family: "Roboto", sans-serif !important;
   color: #444;
+  line-height: 1em;
 }
 #dev-studio.ds-show {
   display: flex;
